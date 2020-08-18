@@ -14,6 +14,9 @@ addons:
   apt:
     packages:
       - npm
+      - libssl1.0-dev 
+      - node-gyp 
+      - nodejs-dev
 
 git:
   depth: 1
