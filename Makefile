@@ -111,7 +111,7 @@ dep-check:
 #  Linters
 # -------------------------------
 
-GOLANGCI_LINT_VERSION ?= v1.21.0
+GOLANGCI_LINT_VERSION ?= v1.30.0
 
 LINTER := $(shell command -v golangci-lint 2> /dev/null)
 
