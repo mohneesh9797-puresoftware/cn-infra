@@ -6,46 +6,46 @@ arch:
     - arm64
 language: go
 go:
-  - 1.x
+    - 1.x
 
 go_import_path: go.ligato.io/cn-infra/v2
 
 addons:
-  apt:
-    packages:
-      - npm
-      - libssl1.0-dev 
-      - node-gyp 
-      - nodejs-dev
+    apt:
+        packages:
+            - npm
+            - libssl1.0-dev 
+            - node-gyp 
+            - nodejs-dev
 
 git:
-  depth: 1
+    depth: 1
 
 before_install:
-  - make get-linkcheck
-  - make get-yamllint
+    - make get-linkcheck
+    - make get-yamllint
 
 install:
-  - make dep-check
-  - make check-links || true
-  - make yamllint
+    - make dep-check
+    - make check-links || true
+    - make yamllint
 
 before_script:
-  - make get-linter
-  - make get-testtools
-  - go get -v github.com/mattn/goveralls
+    - make get-linter
+    - make get-testtools
+    - go get -v github.com/mattn/goveralls
 
 script:
-  - make lint
-  - make build
-  - make test-cover
+    - make lint
+    - make build
+    - make test-cover
 
 after_success:
-  - goveralls -coverprofile=/tmp/coverage.out -service=travis-ci
+    - goveralls -coverprofile=/tmp/coverage.out -service=travis-ci
 
 notifications:
-  slack:
-    rooms:
-      - ligato:QNOK2VgHH6k40T8nQxmSgRmo
-    on_success: change
-    on_failure: always
+    slack:
+        rooms:
+            - ligato:QNOK2VgHH6k40T8nQxmSgRmo
+        on_success: change
+        on_failure: always
