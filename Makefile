@@ -59,7 +59,7 @@ test: get-testtools ## Test all
 
 test-cover: get-testtools
 	@echo "# running coverage report"
-	go test ${GO_BUILD_ARGS} -covermode=count -coverprofile=${COVER_DIR}/coverage.out ./...
+	go test -v ${GO_BUILD_ARGS} -covermode=count -coverprofile=${COVER_DIR}/coverage.out ./...
 	@echo "# coverage data generated into ${COVER_DIR}/coverage.out"
 
 test-cover-html: test-cover
